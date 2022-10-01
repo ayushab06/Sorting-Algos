@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define int long long
+#define endl "\n"
+int mod = 1000000007;
+
+int f(int i,int n,vector<int> &arr,int part)
+{
+
+
+if(i>=n){
+	if(part==0)
+		return 0;
+	return INT_MIN;
+}
+int x=0;
+		for(int k=i;k<n;k++)
+		{
+			if(arr[k]>=arr[i])
+			{
+				x=max(x,arr[k]-arr[i]+f(k+1,n,arr,part-1));
+			}
+		}
+
+		return x;
+}
+
+
+int32_t main()
+{
+#ifndef ONLINE_JUDGE
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+#endif
+
+int n,k;
+cin>>n>>k;
+vector<int> ar
